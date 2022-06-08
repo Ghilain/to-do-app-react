@@ -4,8 +4,8 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const About = (props) => (
-  <div className="navContainer">
-    <ul className="navLinks">
+  <div className="about__content">
+    <ul className="about__list">
       <li>
         <Link to="/about/app">About App</Link>
       </li>
