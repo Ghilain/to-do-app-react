@@ -99,7 +99,7 @@ const TodoContainer = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/to-do-app-react/" element={<HomePage />}></Route>
         <Route path="/about" element={<About />}>
         <Route path=":slug" element={<SinglePage />} />
         </Route>
