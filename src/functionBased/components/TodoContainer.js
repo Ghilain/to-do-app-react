@@ -3,6 +3,11 @@ import Header from "./Header"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
 import { v4 as uuidv4 } from "uuid"
+import { Routes, Route } from 'react-router-dom';
+import About from "../pages/About"
+import NotMatch from "../pages/NotMatch"
+import Navbar from "./Navbar"
+import SinglePage from '../pages/SinglePage';
 
 const TodoContainer = () => {
   function getInitialTodos() {
@@ -73,7 +78,8 @@ const TodoContainer = () => {
     localStorage.setItem("todos", temp)
   }, [todos])
 
-  return (
+   const HomePage = () => (
+    <>
     <div className="container">
       <div className="inner">
         <Header />
@@ -86,7 +92,23 @@ const TodoContainer = () => {
         />
       </div>
     </div>
-  )
+    </>
+  );
+
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/about" element={<About />}>
+        <Route path=":slug" element={<SinglePage />} />
+        </Route>
+        <Route path="*" element={<NotMatch />}></Route> 
+      </Routes>
+
+  </div>
+
+  );
 }
 
 export default TodoContainer
